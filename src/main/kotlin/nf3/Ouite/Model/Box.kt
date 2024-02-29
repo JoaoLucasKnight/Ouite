@@ -1,10 +1,6 @@
 package nf3.Ouite.Model
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.ManyToOne
+import jakarta.persistence.*
 
 @Entity
 data class Box(
@@ -15,7 +11,16 @@ data class Box(
     val caminho: String? = null,
 
     @ManyToOne
-    val box: Box?= null,
+    @JoinColumn(name = "id_space", nullable = false)
+    val space: Space,
+
     @ManyToOne
-    val algo: Algo? = null
+    @JoinColumn(name = "id_box_pai")
+    val boxPai: Box? = null,
+
+    @OneToMany(mappedBy = "box")
+    val subBoxes: List<Box> = listOf(),
+
+    @OneToMany(mappedBy = "box")
+    val artifacts: List<Artifact> = listOf()
 )
