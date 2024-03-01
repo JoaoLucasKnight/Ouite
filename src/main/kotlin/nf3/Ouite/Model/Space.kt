@@ -5,9 +5,9 @@ import jakarta.persistence.*
 @Entity
 data class Space(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    val nome: String,
-    val descricao: String,
+    var id: Long? = null,
+    var nome: String,
+    var descricao: String,
     val caminho: String? = null,
 
     @ManyToOne
