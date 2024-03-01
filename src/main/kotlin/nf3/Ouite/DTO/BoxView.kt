@@ -6,5 +6,5 @@ data class BoxView(
     val descricao: String,
     val caminho: String,
     val space_id: Long,
-    val box_id: Long?,
+    val box_id: Long?
 )

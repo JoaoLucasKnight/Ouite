@@ -18,7 +18,7 @@ data class Box(
     @JoinColumn(name = "id_box_pai")
     val boxPai: Box? = null,
 
-    @OneToMany(mappedBy = "box")
+    @OneToMany(mappedBy = "boxPai")
     val subBoxes: List<Box> = listOf(),
 
     @OneToMany(mappedBy = "box")

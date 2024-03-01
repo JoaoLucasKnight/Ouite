@@ -14,6 +14,9 @@ data class Space(
     @JoinColumn(name = "id_space_pai")
     val spacePai: Space? = null,
 
+//    @OneToMany(mappedBy = "spacePai")
+//    val subespacos: List<Space> = listOf(),
+
     @OneToMany(mappedBy = "space")
     val boxes: List<Box> = listOf(),
 
