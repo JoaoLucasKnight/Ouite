@@ -29,10 +29,10 @@ data class Space(
 
     fun construirCaminho(): String {
         val caminhoBuilder = StringBuilder()
-        // Adicione lógica para construir o caminho com base nos atributos da Space
+
         caminhoBuilder.append(nome)
         spacePai?.let {
-            caminhoBuilder.insert(0, it.construirCaminho() + "/")
+            caminhoBuilder.insert(0, it.construirCaminho() + ">")
         }
         caminho = caminhoBuilder.toString()
         return caminho!!
