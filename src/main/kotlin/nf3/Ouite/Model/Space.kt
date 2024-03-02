@@ -8,7 +8,7 @@ data class Space(
     var id: Long? = null,
     var nome: String,
     var descricao: String,
-    val caminho: String? = null,
+    var caminho: String? = null,
 
     @ManyToOne
     @JoinColumn(name = "id_space_pai")
@@ -22,4 +22,20 @@ data class Space(
 
     @OneToMany(mappedBy = "space")
     val artifacts: List<Artifact> = listOf()
-)
+){
+    init {
+        caminho = construirCaminho()
+    }
+
+    fun construirCaminho(): String {
+        val caminhoBuilder = StringBuilder()
+        // Adicione lógica para construir o caminho com base nos atributos da Space
+        caminhoBuilder.append(nome)
+        spacePai?.let {
+            caminhoBuilder.insert(0, it.construirCaminho() + "/")
+        }
+        caminho = caminhoBuilder.toString()
+        return caminho!!
+    }
+
+}

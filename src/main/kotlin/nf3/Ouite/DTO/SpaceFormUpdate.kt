@@ -3,7 +3,7 @@ package nf3.Ouite.DTO
 import jakarta.validation.constraints.NotEmpty
 
 
-data class SpaceFormNew(
+data class SpaceFormUpdate(
     @field:NotEmpty
     val id:Long,
     @field:NotEmpty

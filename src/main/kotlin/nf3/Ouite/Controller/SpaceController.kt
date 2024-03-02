@@ -2,7 +2,7 @@ package nf3.Ouite.Controller
 
 import jakarta.persistence.Cacheable
 import nf3.Ouite.DTO.SpaceForm
-import nf3.Ouite.DTO.SpaceFormNew
+import nf3.Ouite.DTO.SpaceFormUpdate
 import nf3.Ouite.DTO.SpaceView
 import nf3.Ouite.Model.Space
 import nf3.Ouite.Service.SpaceService
@@ -41,7 +41,7 @@ class SpaceController(private val service: SpaceService){
 
     @PutMapping
     @Transactional
-    fun atualizar(@RequestBody form: SpaceFormNew):SpaceView{
+    fun atualizar(@RequestBody form: SpaceFormUpdate):SpaceView{
         return  service.atualizar(form)
     }
 

@@ -1,7 +1,7 @@
 package nf3.Ouite.Service
 
 import nf3.Ouite.DTO.SpaceForm
-import nf3.Ouite.DTO.SpaceFormNew
+import nf3.Ouite.DTO.SpaceFormUpdate
 import nf3.Ouite.DTO.SpaceView
 import nf3.Ouite.Mapper.SpaceFormMapper
 import nf3.Ouite.Mapper.SpaceViewMapper
@@ -40,12 +40,13 @@ class SpaceService (
         return mapperView.map(space)
     }
 
-    fun atualizar(form: SpaceFormNew):SpaceView{
+    fun atualizar(form: SpaceFormUpdate):SpaceView{
         val space = repos.findById(form.id)
             .orElseThrow{NotFoundException()}
 
         space.nome = form.nome
         space.descricao = form.descricao
+        space.caminho = space.construirCaminho()
         return mapperView.map(space)
     }
 
