@@ -5,10 +5,10 @@ import jakarta.persistence.*
 @Entity
 data class Box(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    val nome: String,
-    val descricao: String,
-    val caminho: String? = null,
+    var id: Long? = null,
+    var nome: String,
+    var descricao: String,
+    var caminho: String? = null,
 
     @ManyToOne
     @JoinColumn(name = "id_space", nullable = false)
@@ -23,4 +23,6 @@ data class Box(
 
     @OneToMany(mappedBy = "box")
     val artifacts: List<Artifact> = listOf()
-)
+){
+
+}

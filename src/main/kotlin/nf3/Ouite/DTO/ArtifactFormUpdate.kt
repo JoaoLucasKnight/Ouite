@@ -1,6 +1,6 @@
 package nf3.Ouite.DTO
 
-data class AlgoView(
+data class ArtifactFormUpdate(
     val id: Long?,
     val name: String,
     val descricao: String,
