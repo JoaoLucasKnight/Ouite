@@ -25,4 +25,22 @@ data class Box(
     val artifacts: List<Artifact> = listOf()
 ){
 
+    init {
+        caminho = construirCaminho()
+    }
+    fun construirCaminho(): String {
+        val caminhoBuilder = StringBuilder()
+
+        caminhoBuilder.append(nome)
+        boxPai?.let {
+            caminhoBuilder.insert(0, it.construirCaminho() + ">")
+        }
+        space.let{
+            caminhoBuilder.insert(0, it.construirCaminho() + ">")
+        }
+
+        caminho = caminhoBuilder.toString()
+        return caminho!!
+    }
+
 }
