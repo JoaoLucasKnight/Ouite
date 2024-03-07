@@ -5,8 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails
 
 class PeopleDetails(
     private val people: People
-): UserDetails {
-
+):UserDetails {
     override fun getAuthorities() = people.role
 
     override fun getPassword() = people.password
@@ -20,5 +19,4 @@ class PeopleDetails(
     override fun isCredentialsNonExpired() = true
 
     override fun isEnabled() = true
-
 }
