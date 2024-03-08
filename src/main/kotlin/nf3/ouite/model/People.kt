@@ -15,6 +15,5 @@ data class People (
     val password: String,
 
     @OneToOne
-    @JoinColumn(name = "role")
     val role: Role
 )

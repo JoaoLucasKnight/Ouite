@@ -34,7 +34,7 @@ class JWT (
             .compact()
     }
 
-    fun isValid (jwt: String): Boolean{
+    fun isValid (jwt: String?): Boolean{
         return try {
             Jwts
                 .parser()
@@ -45,7 +45,7 @@ class JWT (
             false
         }
     }
-    fun getAuthnticator(jwt: String):Authentication{
+    fun getAutheticator(jwt: String?):Authentication{
         val name = Jwts.parser().setSigningKey(secret.toByteArray()).parseClaimsJws(jwt).body.subject
         val user = peopleService.loadUserByUsername(name)
         return UsernamePasswordAuthenticationToken(name, null, user.authorities)
